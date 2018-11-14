@@ -1,17 +1,47 @@
 <div class="container">
-  <h1><%= @restaurant.name %></h1>
-  <p>Category <%= @restaurant.category %></p>
-  <p>Location: <%= @restaurant.address %></p>
-  <p>
-    Contact: <i class="fas fa-phone-square"></i> <%= @restaurant.phone_number %>
-  </p>
-  <h3>Reviews:</h3>
+  <div class="row">
+    <h1><%= @restaurant.name %></h1>
+  </div>
+  <div class="row">
+    <ul class="list-unstyled">
+    <li><i class="fas fa-utensils"></i> &nbsp;<%= @restaurant.category %></li>
+    <li><i class="fas fa-map-marker-alt"></i> &nbsp;<%= @restaurant.address %></li>
+    <li><i class="fas fa-phone-square"></i> &nbsp;<%= @restaurant.phone_number %></li>
+    </ul>
+  </div>
+  <div class="row">
+    <h3>
+      Reviews
+      <%= link_to new_restaurant_review_path(@restaurant) do %>
+        <font size="-1"><i class="fas fa-plus" ></i></font>
+      <% end %>
+    </h3>
+  </div>
 
-  <%= link_to "edit", edit_restaurant_path %>
-  <br>
-  <%= link_to "delete", restaurant_path(@restaurant),
-          method: :delete,
-          data: { confirm: "Are you sure?" } %>
-  <br>
-  <%= link_to "back", restaurants_path %>
+  <% @restaurant.reviews.each do |review| %>
+    <div class="rating row">
+      <% review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+    </div>
+    <div class="row">
+      "<%= review.content %>"
+      <%= link_to edit_restaurant_review_path(@restaurant, review) do %>
+        <font size="-1"><i class="fas fa-edit"></i></font>
+      <% end %>
+    </div>
+
+  <% end %>
+
+  <div class="page-bottom row">
+    <%= link_to "edit", edit_restaurant_path %>
+    <br>
+    <%= link_to restaurants_path do %>
+      <i class="fas fa-arrow-alt-circle-left"></i>
+    <% end %>
+  </div>
+
+  <div class="images">
+
+  </div>
 </div>

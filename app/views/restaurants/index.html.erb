@@ -1,11 +1,12 @@
 <div class="container">
-  <h1>Check out these restaurants:</h1>
+  <h1>Check out these restaurants</h1>
 
+  <%= link_to new_restaurant_path do %>
+    <font size="-1"><i class="fas fa-plus" ></i></font>
+  <% end %>
   <ul class="list-unstyled">
     <% @restaurants.each do |rest| %>
       <li><%= link_to rest.name, restaurant_path(rest) %></li>
     <% end %>
   </ul>
-
-  <%= link_to "Add a restaurant", new_restaurant_path %>
 </div>

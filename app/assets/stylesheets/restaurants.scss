@@ -1,12 +1,74 @@
+$grey: #b5b5b5;
+$yellow: #FAFE77;
+$red: #FF0000;
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .container {
   height: 100vh;
   width: auto;
-  background-image: url(https://source.unsplash.com/FH3nWjvia-U/1600x900);
+  background-image: url(https://source.unsplash.com/FH3nWjvia-U/1100x700);
   background-size: cover;
   margin: 0;
   color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 60px;
+}
+
+.page-bottom {
+  position: absolute;
+  bottom: 20px;
+}
+
+.images {
+  position: absolute;
+  height: 40vh;
+  width: 30vw;
+  background-image: url(https://source.unsplash.com/700x500/?restaurant);
+  background-size: cover;
+  background-position: center;
+  border-bottom: 5px solid $grey;
+  left: 50vw;
+  top: 50px;
 }
 
 .simple-form {
   width: 500px;
+}
+
+.rating {
+  margin-top: 10px;
+}
+
+h1 {
+  color: $yellow;
+  margin-bottom: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: $grey;
+  font-weight: lighter;
+  line-height: 2;
+  &:hover {
+    text-decoration: none;
+    color: $yellow;
+  }
+}
+
+h3 {
+  margin-top: 50px;
+}
+
+p {
+  font-weight: lighter;
+  line-height: 2;
+}
+
+.fa-star {
+  color: $red;
 }
